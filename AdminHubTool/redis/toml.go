@@ -59,5 +59,5 @@ func (rc *RedisConf) writeToml(w *sync.WaitGroup) {
 		os.Exit(0)
 	}
 
-	fmt.Println("成功创建和写入 conf/local/redis_config.toml 文件")
+	fmt.Println("成功创建和写入 conf/local/redis_map.toml 文件")
 }

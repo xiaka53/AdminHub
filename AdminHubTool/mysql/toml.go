@@ -29,7 +29,7 @@ func (sc *MysqlConf) writeToml(w *sync.WaitGroup) {
 		List: ListConfig{
 			Base: BaseConfig{
 				DriverName:      "mysql",
-				DataSourceName:  fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=true&loc=Asia%2FShanghai", sc.User, sc.Pass, sc.Url, sc.Port, sc.Database),
+				DataSourceName:  fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=true", sc.User, sc.Pass, sc.Url, sc.Port, sc.Database),
 				MaxOpenConn:     20,
 				MaxIdleConn:     10,
 				MaxConnLifeTime: 10,

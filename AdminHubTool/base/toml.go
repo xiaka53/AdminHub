@@ -76,7 +76,7 @@ func WriteToml(webName string, port int) {
 			},
 		},
 	}
-	file, err := os.Create("conf/local/base_config.toml")
+	file, err := os.Create("conf/local/base.toml")
 	if err != nil {
 		fmt.Println("base配置文件创建失败")
 		os.Exit(0)
@@ -94,5 +94,5 @@ func WriteToml(webName string, port int) {
 		os.Exit(0)
 	}
 
-	fmt.Println("成功创建和写入 conf/local/base_config.toml 文件")
+	fmt.Println("成功创建和写入 conf/local/base.toml 文件")
 }
