@@ -53,5 +53,6 @@ SET_MYSQLDATABASE:
 
 	base.WriteToml(adminName, addr)
 	setMain()
+	setRouter()
 	os.Exit(0)
 }

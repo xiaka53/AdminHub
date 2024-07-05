@@ -24,7 +24,7 @@ func main() {
 	if table {
 		table2.Table()
 	}
-	fmt.Println("========")
+	help()
 }
 
 func help() {
