@@ -119,6 +119,12 @@ func sqlInit(db *gorm.DB, name string, w *sync.WaitGroup) {
 		Value:  name,
 		CanDel: 0,
 	}
+	uploadSet := dao.UploadSet{
+		Qiniu:   "",
+		Alioss:  "",
+		Txcos:   "",
+		Visible: dao.UploadSetVisibleLoc,
+	}
 	_db := db.Begin()
 	if err = _db.Create(&admin).Error; err != nil {
 		_db.Rollback()
@@ -140,6 +146,11 @@ func sqlInit(db *gorm.DB, name string, w *sync.WaitGroup) {
 	if err = _db.Create(&setting).Error; err != nil {
 		_db.Rollback()
 		fmt.Println("系统名称设置失败,err:", err)
+		os.Exit(0)
+	}
+	if err = _db.Create(&uploadSet).Error; err != nil {
+		_db.Rollback()
+		fmt.Println("上传配置设置失败,err:", err)
 		os.Exit(0)
 	}
 	_db.Commit()
