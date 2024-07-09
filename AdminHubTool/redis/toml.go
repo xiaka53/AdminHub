@@ -39,11 +39,11 @@ func (rc *RedisConf) writeToml(w *sync.WaitGroup) {
 			},
 		},
 	}
-	if err := os.MkdirAll(filepath.Dir("conf/local/redis_config.toml"), os.ModePerm); err != nil {
+	if err := os.MkdirAll(filepath.Dir("conf/local/redis_map.toml"), os.ModePerm); err != nil {
 		fmt.Println("创建配置文件夹失败,err:", err)
 		os.Exit(0)
 	}
-	file, err := os.Create("conf/local/redis_config.toml")
+	file, err := os.Create("conf/local/redis_map.toml")
 	if err != nil {
 		fmt.Println("redis配置文件创建失败,err:", err)
 		os.Exit(0)
