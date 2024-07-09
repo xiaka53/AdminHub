@@ -92,7 +92,7 @@ func ResponseError(c *gin.Context, code ResponseCode, err error) {
 		Data:    "",
 		TraceId: traceId,
 	}
-	if err != nil {
+	if err.Error() == "" {
 		switch c.GetString("lang") {
 		case "en":
 			resp.Msg = en.getMessage(resp.Code)
